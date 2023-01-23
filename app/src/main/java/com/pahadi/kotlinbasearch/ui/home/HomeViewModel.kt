@@ -11,20 +11,6 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
-
-    private val _feed = MutableLiveData<List<Article>>()
-    val feed : LiveData<List<Article>> = _feed
-
-    fun fetchGlobalFeel() = viewModelScope.launch {
-        ArticlesRepo.getGlobalFeed().body()?.let {
-            _feed.postValue(it.articles)
-            Log.d("HomeFrg_d", "fetchGlobalFeel size : "+it.articlesCount)
-        }
-    }
 
 
 }

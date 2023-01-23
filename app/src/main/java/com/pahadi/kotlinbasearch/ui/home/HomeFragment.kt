@@ -30,15 +30,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
-        binding.btnFetchData.setOnClickListener {
-            Log.d(TAG, "data shit: ")
-            homeViewModel.fetchGlobalFeel()
-        }
 
         return root
     }
