@@ -6,5 +6,4 @@ object ArticlesRepo {
     val api = ConduitClient.publicApi
 
     suspend fun getGlobalFeed() = api.getArticles()
-
 }
