@@ -23,9 +23,11 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
+
+
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.pahadi.kotlinbasearch.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_auth"
+        android:name="com.pahadi.kotlinbasearch.ui.auth.AuthFragment"
+        android:label="@string/menu_auth"
+        tools:layout="@layout/fragment_auth" />
 </navigation>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.pahadi.kotlinbasearch.R
 import com.pahadi.kotlinbasearch.databinding.FragmentGlobalFeedBinding
 
@@ -19,6 +20,7 @@ class GlobalFeedFragment : Fragment() {
     private val TAG = "GlobalFeedFrg_d"
 
     private lateinit var viewModel: GlobalFeedViewModel
+    private lateinit var feedAdapter: ArticleFeedAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +29,16 @@ class GlobalFeedFragment : Fragment() {
         val feedViewModel = ViewModelProvider(this).get(GlobalFeedViewModel::class.java)
         _binding = FragmentGlobalFeedBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(GlobalFeedViewModel::class.java)
+        feedAdapter = ArticleFeedAdapter()
+        _binding?.feedRecyclerView?.layoutManager = LinearLayoutManager(context)
+        _binding?.feedRecyclerView?.adapter = feedAdapter
 
-        binding.button.setOnClickListener {
-            viewModel.fetchGlobalFeel()
-            binding.textView.text = "FEtching"
-        }
-
+        viewModel.fetchGlobalFeel()
         viewModel.feed.observe({lifecycle}){
-            binding.textView.text = "FETCHED!!!"
+            feedAdapter.submitList(it)
         }
+
+
 
 
 
