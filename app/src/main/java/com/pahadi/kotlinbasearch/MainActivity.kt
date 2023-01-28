@@ -1,30 +1,42 @@
 package com.pahadi.kotlinbasearch
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.pahadi.kotlinbasearch.databinding.ActivityMainBinding
+import com.pahadi.kotlinbasearch.ui.auth.AuthViewModel
+import io.realworld.api.models.entities.User
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var authViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
         setSupportActionBar(binding.appBarMain.toolbar)
+
+
+//        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
 
         binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -42,6 +54,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        
+        authViewModel.user.observe({lifecycle}){
+//            updateMenu(it)
+            Log.d("test_d", "reached MainActivity::"+it?.username)
+
+            Toast.makeText(this, "Logged in as ${it?.username}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun updateMenu(user: User?) {
+        TODO("Not yet implemented")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
