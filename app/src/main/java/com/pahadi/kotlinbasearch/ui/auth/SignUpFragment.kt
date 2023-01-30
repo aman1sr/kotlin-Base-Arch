@@ -32,7 +32,8 @@ class SignUpFragment : Fragment() {
         _binding?.apply {
 
             submitButton.setOnClickListener {
-                authViewModel.login(
+                authViewModel.signup(
+                    usernameEditText.text.toString(),
                     emailEditText.text.toString(),
                     passwordEditText.text.toString()
                 )

@@ -57,8 +57,7 @@ class MainActivity : AppCompatActivity() {
         
         authViewModel.user.observe({lifecycle}){
             updateMenu(it)
-            Log.d("test_d", "reached MainActivity::"+it?.username)
-            Toast.makeText(this, "Logged in as ${it?.username}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Welcome ${it?.username}", Toast.LENGTH_LONG).show()
         }
     }
 
