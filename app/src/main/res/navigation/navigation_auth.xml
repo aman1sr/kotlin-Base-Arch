@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.pahadi.kotlinbasearch.ui.auth.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login_signup" />
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.pahadi.kotlinbasearch.ui.auth.SignUpFragment"

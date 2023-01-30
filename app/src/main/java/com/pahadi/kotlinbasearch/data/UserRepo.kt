@@ -13,8 +13,11 @@ object UserRepo {
     suspend fun login(email:String,password:String): UserResponse?{
         val response = api.loginUser(LoginRequest(LoginData(email, password)))
         Log.d("test_d", "API :"+response.message())
+        ConduitClient.authToken = response.body()?.user?.token
         return response.body()
     }
+    suspend fun getUserProfile() = authAPI.getCurrentUser().body()?.user
+
 
 
 }

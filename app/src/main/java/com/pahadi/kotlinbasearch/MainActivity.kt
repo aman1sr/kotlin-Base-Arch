@@ -56,15 +56,23 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         
         authViewModel.user.observe({lifecycle}){
-//            updateMenu(it)
+            updateMenu(it)
             Log.d("test_d", "reached MainActivity::"+it?.username)
-
             Toast.makeText(this, "Logged in as ${it?.username}", Toast.LENGTH_LONG).show()
         }
     }
 
     private fun updateMenu(user: User?) {
-        TODO("Not yet implemented")
+        when (user) {
+            is User -> {
+                binding.navView.menu.clear()
+                binding.navView.inflateMenu(R.menu.main_menu_user)
+            }
+            else ->{
+                binding.navView.menu.clear()
+                binding.navView.inflateMenu(R.menu.main_menu_guest)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
