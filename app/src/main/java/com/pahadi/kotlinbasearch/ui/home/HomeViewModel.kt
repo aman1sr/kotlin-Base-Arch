@@ -12,5 +12,14 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
 
+/*
+
+    fun getTestingNewsFeed() = viewModelScope.launch {
+        ArticlesRepo.getTestNews().body()?.let {
+            Log.d("testingNews_d", "getTestingNewsFeed: "+it.toString())
+        }
+    }
+*/
+
 
 }

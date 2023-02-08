@@ -15,14 +15,19 @@
         android:id="@+id/nav_feed"
         android:name="com.pahadi.kotlinbasearch.ui.feed.GlobalFeedFragment"
         android:label="@string/menu_feed"
-        tools:layout="@layout/fragment_global_feed" />
+        tools:layout="@layout/fragment_feed" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_galleryy"
         android:name="com.pahadi.kotlinbasearch.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.pahadi.kotlinbasearch.ui.setting.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
 
 
     <fragment
@@ -30,4 +35,11 @@
         android:name="com.pahadi.kotlinbasearch.ui.auth.AuthFragment"
         android:label="@string/menu_auth"
         tools:layout="@layout/fragment_auth" />
+
+    <fragment
+        android:id="@+id/nav_my_feed"
+        android:name="com.pahadi.kotlinbasearch.ui.feed.MyFeedFragment"
+        android:label="@string/menu_my_feed"
+        tools:layout="@layout/fragment_feed"
+        />
 </navigation>

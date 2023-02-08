@@ -30,7 +30,6 @@ class AuthFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        // TODO: Use the ViewModel
 
         navController = _binding?.let { Navigation.findNavController(it.root.findViewById(R.id.authFragmentNavHost)) }
         _binding?.authTabLayout?.addOnTabSelectedListener(object :TabLayout.OnTabSelectedListener{

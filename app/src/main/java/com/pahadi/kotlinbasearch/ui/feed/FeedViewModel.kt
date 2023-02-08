@@ -9,7 +9,7 @@ import com.pahadi.kotlinbasearch.data.ArticlesRepo
 import io.realworld.api.models.entities.Article
 import kotlinx.coroutines.launch
 
-class GlobalFeedViewModel : ViewModel() {
+class FeedViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
@@ -24,4 +24,14 @@ class GlobalFeedViewModel : ViewModel() {
             _feed.postValue(it.articles)
             Log.d("GlobalFeedFrg_d", "fetchGlobalFeel size : "+it.articlesCount)
         }
-    }}
+    }
+    fun fetchMyFeed() = viewModelScope.launch {
+        ArticlesRepo.getMyFeed()?.let {
+            ArticlesRepo.getMyFeed()?.let {
+                _feed.postValue(it)
+            }
+        }
+    }
+
+
+}

@@ -1,15 +1,15 @@
 package com.pahadi.kotlinbasearch.ui.feed
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pahadi.kotlinbasearch.databinding.FragmentFeedBinding
 
-class GlobalFeedFragment : Fragment() {
+class MyFeedFragment : Fragment() {
 
     private var _binding: FragmentFeedBinding? = null
     // This property is only valid between onCreateView and
@@ -31,7 +31,7 @@ class GlobalFeedFragment : Fragment() {
         _binding?.feedRecyclerView?.layoutManager = LinearLayoutManager(context)
         _binding?.feedRecyclerView?.adapter = feedAdapter
 
-        viewModel.fetchGlobalFeel()
+        viewModel.fetchMyFeed()
         viewModel.feed.observe({lifecycle}){
             feedAdapter.submitList(it)
         }

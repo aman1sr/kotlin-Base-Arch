@@ -17,6 +17,5 @@
     <string name="menu_auth">SignIn/SignUp</string>
     <string name="signIn">SignIn</string>
     <string name="signUp">SignUp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

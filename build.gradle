@@ -11,7 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-//        classpath "com.android.tools.build:gradle:7.5.0"      // todo: find gradle version in android
+//        classpath "com.android.tools.build:gradle:7.5.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
     }
 }

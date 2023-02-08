@@ -28,6 +28,7 @@ object ConduitClient {
 
     val retrofitBuilder = Retrofit.Builder()
         .baseUrl("https://conduit.productionready.io/api/")
+//        .baseUrl("https://newsapi.org/")         //TODO: for testing purpose
         .addConverterFactory(MoshiConverterFactory.create())
 
     val publicApi = retrofitBuilder

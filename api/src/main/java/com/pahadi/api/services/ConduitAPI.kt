@@ -1,5 +1,6 @@
 package io.realworld.api.services
 
+import com.pahadi.api.models.newsData.News
 import io.realworld.api.models.requests.LoginRequest
 import io.realworld.api.models.requests.SignupRequest
 import io.realworld.api.models.responses.ArticleResponse
@@ -35,5 +36,12 @@ interface ConduitAPI {
 
     @GET("tags")
     suspend fun getTags(): Response<TagsResponse>
+
+    @GET("v2/top-headlines")      //todo: (NEWS testing)
+    suspend fun getNews(
+        @Query("country") country: String?,
+        @Query("category") category: String?,
+        @Query("apiKey") apiKey: String
+    ): Response<News>
 
 }

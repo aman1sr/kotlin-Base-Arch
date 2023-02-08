@@ -45,11 +45,14 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations
+
+        /*
+        *  inside --> AppBarConfiguration --> we set the ID wrt nav_menu & navigation_main_Editor ( we put all 3 common ids )
+        *            add the menu_id here, to make the Frg as top level destination (ie, will show drawable icon in TOP LEFT corner)
+        * */
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery , R.id.nav_auth
+                R.id.nav_home, R.id.nav_galleryy , R.id.nav_auth , R.id.nav_setting , R.id.nav_feed, R.id.nav_my_feed
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
