@@ -9,3 +9,8 @@
 - isNotBlank()
 - takeIf()
 
+### AuthViewModel.kt
+- let{ }
+- 
+
+

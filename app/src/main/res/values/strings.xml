@@ -18,4 +18,5 @@
     <string name="signIn">SignIn</string>
     <string name="signUp">SignUp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="arg_article_id">ARTICLE_ID</string>
 </resources>

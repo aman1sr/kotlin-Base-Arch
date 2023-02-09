@@ -31,6 +31,14 @@ class AuthViewModel : ViewModel() {
         _user.postValue(null)
     }
 
+/*
+* let takes the object it is invoked upon as the parameter and returns the result of the lambda expression
+*   eg --
+*       variable = "value"
+        variable?.let { it ->
+    	            println(it)
+                     }
+* */
     fun update(
         bio: String?,
         username: String?,

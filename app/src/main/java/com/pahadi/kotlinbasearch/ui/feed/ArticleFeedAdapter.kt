@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pahadi.kotlinbasearch.databinding.ListItemArticleBinding
 import io.realworld.api.models.entities.Article
 
-class ArticleFeedAdapter : ListAdapter<Article, ArticleFeedAdapter.ArticleViewHolder>(
+// todo: how Adapter() constructor is accessible down the class
+class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :
+    ListAdapter<Article, ArticleFeedAdapter.ArticleViewHolder>(
     object :DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
            return oldItem == newItem
@@ -20,9 +22,7 @@ class ArticleFeedAdapter : ListAdapter<Article, ArticleFeedAdapter.ArticleViewHo
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem.toString() == newItem.toString()
         }
-
     }
-
 ){
 
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -43,8 +43,13 @@ class ArticleFeedAdapter : ListAdapter<Article, ArticleFeedAdapter.ArticleViewHo
             authorTextView.text = article.author.username
             titleTextView.text = article.title
             bodySnippetTextView.text = article.body
-            dateTextView.text = "Dec 15, 2020"
-            avatarImageView.background = ColorDrawable(Color.BLUE)
+            dateTextView.text = "Dec 15, 2020"      // todo: DATE stuff
+            avatarImageView.background = ColorDrawable(Color.BLUE)      // todo: extension -- loadIMG
+
+            root.setOnClickListener { onArticleClicked(article.slug) }
+
+
+
         }
     }
 
